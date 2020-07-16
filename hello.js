@@ -13,26 +13,29 @@ function helloWorld(){
 
 
     //<name> változó bekérése
-    let name = prompt ('Please type your name!');     
+    //let name = prompt ('Please type your name(s)! (separated with a comma)'); 
+    let arrayName = prompt("Enter your names").split(",");
+
+    console.log(arrayName)    
 
 
 //2. függvény: Hello, <name>!
-function helloName(name){           
+function helloName(arrayName){           
     
-    const output = 'Hello, ' + name + '!';
+    const output = 'Hello, ' + arrayName.join(', ') + '!';
     return output;
 
 }
 
     //2. függvény elnevezése: salutation 
-    salutation = helloName(name);  
+    salutation = helloName(arrayName);  
 
 
 //3. függvény: kiíratja az 1. vagy a 2. függvényt a feltételeknek megfelelően
 function helloWrite(){              
 
     //conditional
-    if (name === '' || name === null){       
+    if (arrayName === '' || arrayName === null){       
         
         //ha <name> üres, vagy null, akkor 1. függvény
         return message;
@@ -52,7 +55,7 @@ function helloWrite(){
 document.getElementById("hello").innerHTML = display;
 
 
-
   }
   
   window.addEventListener("load", loadFunction);
+
